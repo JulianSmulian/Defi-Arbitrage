@@ -71,7 +71,6 @@ const pairs = [
   { symbol:  'CZZ',   address:  '0x20bf12A7bdb6d7B84069fb3b939892A301C981d1'},
   { symbol:  'DAI',   address:  '0x6B175474E89094C44Da98b954EedeAC495271d0F'},
   { symbol:  'DAO',   address:  '0x0f51bb10119727a7e5eA3538074fb341F56B09Ad'},
-  //{ symbol:  'DELTA', address:  '0x9EA3b5b4EC044b70375236A281986106457b20EF'},
   { symbol:  'DEP',   address:  '0x1A3496C18d558bd9C6C8f609E1B129f67AB08163'},
   { symbol:  'DEXTF', address:  '0x5F64Ab1544D28732F0A24F4713c2C8ec0dA089f0'},
   { symbol:  'DFD',   address:  '0x20c36f062a31865bED8a5B1e512D9a1A20AA333A'},
@@ -96,24 +95,24 @@ const pairs = [
   { symbol:  'FORTH',  address: '0x77fba179c79de5b7653f68b5039af940ada60ce0'},
   { symbol:  'FOUR',  address:  '0x4730fB1463A6F1F44AEB45F6c5c422427f37F4D0'},
   { symbol:  'FTM',   address:  '0x4E15361FD6b4BB609Fa63C81A2be19d873717870'},
-  { symbol:  'FTT' ,   address: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'},//
-  { symbol:  'FTX Token',    address:  '0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9'},
+  { symbol:  'FTT' ,  address:  '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'},//
+  { symbol:  'FTX',   address:  '0x50D1c9771902476076eCFc8B2A83Ad6b9355a4c9'},
   { symbol:  'FUSE',  address:  '0x970B9bB2C0444F5E81e9d0eFb84C8ccdcdcAf84d'},
   { symbol:  'FVT',   address:  '0x45080a6531d671DDFf20DB42f93792a489685e32'},
   { symbol:  'FXS',   address:  '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0'},
   { symbol:  'GLM',   address:  '0x7DD9c5Cba05E151C895FDe1CF355C9A1D5DA6429'},
   { symbol:  'GMT',   address:  '0x7Ddc52c4De30e94Be3A6A0A2b259b2850f421989'},
-  { symbol:  'GNO' ,   address: '0x6810e776880c02933d47db1b9fc05908e5386b96'},//
-  { symbol:  'GNYerc20',    address:  '0xb1f871Ae9462F1b2C6826E88A7827e76f86751d4'},
+  { symbol:  'GNO',   address:  '0x6810e776880c02933d47db1b9fc05908e5386b96'},//
+  { symbol:  'GNY',   address:  '0xb1f871Ae9462F1b2C6826E88A7827e76f86751d4'},
   { symbol:  'GZE',   address:  '0x4AC00f287f36A6Aad655281fE1cA6798C9cb727b'},
   { symbol:  'HEGIC', address:  '0x584bC13c7D411c00c01A62e8019472dE68768430'},
   { symbol:  'HXRO',  address:  '0x4bD70556ae3F8a6eC6C4080A0C327B24325438f3'},
-  { symbol:  'ICHI',   address: '0x903bef1736cddf2a537176cf3c64579c3867a881'},//
+  { symbol:  'ICHI',  address:  '0x903bef1736cddf2a537176cf3c64579c3867a881'},//
   { symbol:  'IDLE',  address:  '0x875773784Af8135eA0ef43b5a374AaD105c5D39e'},
   { symbol:  'ILV',   address:  '0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E'},
   { symbol:  'INDEX', address:  '0x0954906da0Bf32d5479e25f46056d22f08464cab'},
-  { symbol:  'INJ',    address: '0xe28b3b32b6c345a34ff64674606124dd5aceca30'},//
-  { symbol:  'INV' ,   address: '0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68'},//
+  { symbol:  'INJ',   address:  '0xe28b3b32b6c345a34ff64674606124dd5aceca30'},//
+  { symbol:  'INV' ,  address:  '0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68'},//
   { symbol:  'INV',   address:  '0x41D5D79431A913C4aE7d69a668ecdfE5fF9DFB68'},
   { symbol:  'IQ',    address:  '0x579CEa1889991f68aCc35Ff5c3dd0621fF29b0C9'},
   { symbol:  'JRT',   address:  '0x8A9C67fee641579dEbA04928c4BC45F66e26343A'},
@@ -258,23 +257,23 @@ let eth_pairs =[
   { symbol:  'AERGO', address:  '0x91Af0fBB28ABA7E31403Cb457106Ce79397FD4E6'},
   { symbol:  'AKITA', address:  '0x3301Ee63Fb29F863f2333Bd4466acb46CD8323E6'},
   { symbol:  'AKRO',  address:  '0x8Ab7404063Ec4DBcfd4598215992DC3F8EC853d7'},
-  { symbol:  'ALCX',  address: '0xdbdb4d16eda451d0503b854cf79d55697f90c8df'},
-  { symbol:  'ALEPH',  address: '0x27702a26126e0b3702af63ee09ac4d1a084ef628'},//k
+  { symbol:  'ALCX',  address:  '0xdbdb4d16eda451d0503b854cf79d55697f90c8df'},
+  { symbol:  'ALEPH', address:  '0x27702a26126e0b3702af63ee09ac4d1a084ef628'},//k
   { symbol:  'ALPA',  address:  '0x7cA4408137eb639570F8E647d9bD7B7E8717514A'},
   { symbol:  'ALPHA', address:  '0xa1faa113cbE53436Df28FF0aEe54275c13B40975'},
-  { symbol:  'AMPL',   address: '0xd46ba6d942050d489dbd938a2c909a5d5039a161'},//APPROVED
+  { symbol:  'AMPL',  address:  '0xd46ba6d942050d489dbd938a2c909a5d5039a161'},//APPROVED
   { symbol:  'ANT',   address:  '0xa117000000f279D81A1D3cc75430fAA017FA5A2e'},
-  { symbol:  'ANY' ,   address: '0xf99d58e463a2e07e5692127302c20a191861b4d6'},//
+  { symbol:  'ANY' ,  address:  '0xf99d58e463a2e07e5692127302c20a191861b4d6'},//
   { symbol:  'API3',  address:  '0x0b38210ea11411557c13457D4dA7dC6ea731B88a'},
   { symbol:  'ARCH',  address:  '0x1F3f9D3068568F8040775be2e8C03C103C61f3aF'},
   { symbol:  'ARMOR', address:  '0x1337DEF16F9B486fAEd0293eb623Dc8395dFE46a'},
-  { symbol:  'AXS' ,   address: '0xf5d669627376ebd411e34b98f19c868c8aba5ada'},//
+  { symbol:  'AXS' ,  address:  '0xf5d669627376ebd411e34b98f19c868c8aba5ada'},//
   { symbol:  'BAC',   address:  '0x3449FC1Cd036255BA1EB19d65fF4BA2b8903A69a'},
-  { symbol:  'BAL' ,   address: '0xba100000625a3754423978a60c9317c58a424e3d'},//
+  { symbol:  'BAL' ,  address:  '0xba100000625a3754423978a60c9317c58a424e3d'},//
   { symbol:  'BAND',  address:  '0xBA11D00c5f74255f56a5E366F4F77f5A186d7f55'},
   { symbol:  'BANK',  address:  '0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198'},
   { symbol:  'BAO',   address:  '0x374CB8C27130E2c9E04F44303f3c8351B9De61C1'},
-  { symbol:  'BASE',   address: '0x07150e919b4de5fd6a63de1f9384828396f25fdc'},
+  { symbol:  'BASE',  address:  '0x07150e919b4de5fd6a63de1f9384828396f25fdc'},
   { symbol:  'BAT',   address:  '0x0D8775F648430679A709E98d2b0Cb6250d2887EF'},
   { symbol:  'BLO',   address:  '0x68481f2c02BE3786987ac2bC3327171C5D05F9Bd'},
   { symbol:  'BLT',   address:  '0x107c4504cd79C5d2696Ea0030a8dD4e92601B82e'},
@@ -282,15 +281,15 @@ let eth_pairs =[
   { symbol:  'BSP',   address:  '0xa1454f9c704AF96636F3A7532b9a04c411f85680'},
   { symbol:  'BZRX',  address:  '0x56d811088235F11C8920698a204A5010a788f4b3'},
   { symbol:  'Bone',  address:  '0x5C84bc60a796534bfeC3439Af0E6dB616A966335'},
-  { symbol:  'CAVO',   address: '0x24ea9c1cfd77a8db3fb707f967309cf013cc1078'},
-  { symbol:  'COMBO',  address: '0xffffffff2ba8f66d4e51811c5190992176930278'},//
+  { symbol:  'CAVO',  address:  '0x24ea9c1cfd77a8db3fb707f967309cf013cc1078'},
+  { symbol:  'COMBO', address:  '0xffffffff2ba8f66d4e51811c5190992176930278'},//
   { symbol:  'COMP',  address:  '0xc00e94Cb662C3520282E6f5717214004A7f26888'},
   { symbol:  'COVER', address:  '0x4688a8b1F292FDaB17E9a90c8Bc379dC1DBd8713'},
-  { symbol:  'COVER-OLD',    address:  '0x5D8d9F5b96f4438195BE9b99eee6118Ed4304286'},
-  { symbol:  'CREAM',  address: '0x2ba592F78dB6436527729929AAf6c908497cB200'},//
-  { symbol:  'CRV' ,   address: '0xd533a949740bb3306d119cc777fa900ba034cd52'},//
+  { symbol:  'COVER', address:  '0x5D8d9F5b96f4438195BE9b99eee6118Ed4304286'},
+  { symbol:  'CREAM', address:  '0x2ba592F78dB6436527729929AAf6c908497cB200'},//
+  { symbol:  'CRV' ,  address:  '0xd533a949740bb3306d119cc777fa900ba034cd52'},//
   { symbol:  'CTX',   address:  '0x321C2fE4446C7c963dc41Dd58879AF648838f98D'},
-  { symbol:  'CVP',    address: '0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1'},//
+  { symbol:  'CVP',   address:  '0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1'},//
   { symbol:  'CZZ',   address:  '0x20bf12A7bdb6d7B84069fb3b939892A301C981d1'},
   { symbol:  'DAI',   address:  '0x6B175474E89094C44Da98b954EedeAC495271d0F'},
   { symbol:  'DAO',   address:  '0x0f51bb10119727a7e5eA3538074fb341F56B09Ad'},
@@ -328,7 +327,7 @@ let eth_pairs =[
   { symbol:  'GMT',   address:  '0x7Ddc52c4De30e94Be3A6A0A2b259b2850f421989'},
   { symbol:  'GNO' ,   address: '0x6810e776880c02933d47db1b9fc05908e5386b96'},//
   { symbol:  'GNYerc20',    address:  '0xb1f871Ae9462F1b2C6826E88A7827e76f86751d4'},
-  { symbol:  'GZE',   address:  '0x4AC00f287f36A6Aad655281fE1cA6798C9cb727b'},
+  //{ symbol:  'GZE',   address:  '0x4AC00f287f36A6Aad655281fE1cA6798C9cb727b'},
   { symbol:  'HEGIC', address:  '0x584bC13c7D411c00c01A62e8019472dE68768430'},
   { symbol:  'HXRO',  address:  '0x4bD70556ae3F8a6eC6C4080A0C327B24325438f3'},
   { symbol:  'ICHI',   address: '0x903bef1736cddf2a537176cf3c64579c3867a881'},//
@@ -363,7 +362,7 @@ let eth_pairs =[
   { symbol:  'MTA',   address:  '0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2'},
   { symbol:  'MUST',  address:  '0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f'},
   { symbol:  'MYFI',  address:  '0x22FE5BcAdA4E30A7310eFB1DfF7f90168dC42b62'},
-  { symbol:  'MYM',   address:  '0xb9892F9A892f3e251fc58B9076c56aDD528eb8A6'},
+//  { symbol:  'MYM',   address:  '0xb9892F9A892f3e251fc58B9076c56aDD528eb8A6'},
   { symbol:  'MoonGain',    address:  '0x4E26Ceb8A932114a95cfB682851b6e832f830062'},
   { symbol:  'NAOS',   address: '0x4a615bb7166210cce20e6642a6f8fb5d4d044496'},
   { symbol:  'NCT',   address:  '0x8A9c4dfe8b9D8962B31e4e16F8321C44d48e246E'},
@@ -431,7 +430,7 @@ let eth_pairs =[
   { symbol:  'UNIFI',  address: '0x9e78b8274e1d6a76a0dbbf90418894df27cbceb5'},
   { symbol:  'USDC',   address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'},
   { symbol:  'USDN',  address:  '0x674C6Ad92Fd080e4004b2312b45f796a192D27a0'},
-  { symbol:  'USDP',  address:  '0x1456688345527bE1f37E9e627DA0837D6f08C925'},
+//  { symbol:  'USDP',  address:  '0x1456688345527bE1f37E9e627DA0837D6f08C925'},
   { symbol:  'UST',   address:  '0xa47c8bf37f92aBed4A126BDA807A7b7498661acD'},
   { symbol:  'UWL',    address: '0xdbdd6f355a37b94e6c7d32fef548e98a280b8df5'},
   { symbol:  'UniFi', address:  '0x9E78b8274e1D6a76a0dBbf90418894DF27cBCEb5'},
@@ -458,7 +457,7 @@ let eth_pairs =[
   { symbol:  'rDAO',  address:  '0x5bC0531961ac966486F53e34E6FB3b16EAf3ab4c'},
   { symbol:  'sUSD',  address:  '0x57Ab1ec28D129707052df4dF418D58a2D46d5f51'},
   { symbol:  'yyDAI+yUSDC+yUSDT+yTUSD', address:  '0x5dbcF33D8c2E976c6b560249878e6F1491Bca25c'},
-  { symbol:  '♥️CHINUちび',   address:  '0x5F72be0835e32D7c853e2fFd5Dd3d181D5B2Ad51'}
+//  { symbol:  '♥️CHINUちび',   address:  '0x5F72be0835e32D7c853e2fFd5Dd3d181D5B2Ad51'}
 
 ]
 
@@ -541,7 +540,7 @@ return Number.parseFloat(x).toFixed(2);
 }
 
 async function checkPair(args) {
-  monitoringPrice = false
+  monitoringPrice = true
   const { position, inputSymbol, inputAddress, outputSymbol, outputAddress } = args
   crypto_position = position
   let uniswapAmountsOut
@@ -600,7 +599,7 @@ async function checkPair(args) {
       create_record('Un-Su',inputSymbol,outputSymbol, profit, time)
       networkisBusy = true
  }else{
-   console.log(outputSymbol,'Un->Su',financial(profit),'USD')
+   console.log(outputSymbol,'Un->Su',financial(profit),'USD', '-------------------Uni received',financial(web3.utils.fromWei(num_uni)),'Sushi ETH',(web3.utils.fromWei(sushiswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
 
  }  }
 
@@ -640,17 +639,18 @@ async function checkPair(args) {
       networkisBusy = true
 
  }else{
- console.log(_outputSymbol,'Su->Un',financial(profit),'USD')
+   console.log(outputSymbol,'Su->Un',financial(profit),'USD', '-------------------Sushi received',financial(web3.utils.fromWei(num_sushi)),'Uni ETH',(web3.utils.fromWei(uniswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
  }
  }
 
   if ((eth_pairs.length - eth_pairs[p]) == 0){
-    monitorPrice()
+    monitoringPrice == false
   }
 }
 
 
 async function monitorPrice() {
+  if(monitoringPrice) {return}
   ethPrice_inDai = await uniswapRouterContract.methods.getAmountsIn('1000000000000000000',(['0x6b175474e89094c44da98b954eedeac495271d0f','0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'])).call()
   ethPrice_inDai = web3.utils.fromWei(ethPrice_inDai[0].toString())
   let time = moment().tz('America/Chicago').format()
@@ -664,7 +664,7 @@ async function monitorPrice() {
   }
   else
   {
-  if(monitoringPrice) {return}
+
   monitoringPrice = true
   try {
     for (p in eth_pairs) {
