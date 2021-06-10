@@ -1,5 +1,6 @@
 require('dotenv').config()
 const Tx = require("ethereumjs-tx").Transaction
+
 //const BigNumber = require('bignumber.js');
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -20,6 +21,7 @@ let highestProfit = -100
 const meAddress = '0x8b12bacf44bd9a2a06fd09f326a0d8e70741e3c1'
 const flash_amount ='0100000000000000000'
 const est_gas  = 160000
+const test_gas = 120000
 let ethPrice
 let currentgasPrice
 let priceMonitor
@@ -255,7 +257,7 @@ let eth_pairs =[
   { symbol:  '$ROPE', address:  '0x9D47894f8BECB68B9cF3428d256311Affe8B068B'},
   { symbol:  '$TRDL', address:  '0x297D33e17e61C2Ddd812389C2105193f8348188a'},
   { symbol:  '1INCH', address:  '0x111111111117dC0aa78b770fA6A738034120C302'},
-  { symbol:  'AAVE',  address:  '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'},
+  //{ symbol:  'AAVE',  address:  '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'},
   { symbol:  'ADX',   address:  '0xADE00C28244d5CE17D72E40330B1c318cD12B7c3'},
   //{ symbol:  'AERGO', address:  '0x91Af0fBB28ABA7E31403Cb457106Ce79397FD4E6'},
   //{ symbol:  'AKITA', address:  '0x3301Ee63Fb29F863f2333Bd4466acb46CD8323E6'},
@@ -556,7 +558,7 @@ async function checkPair(args) {
   let zero = 4
   let price
   let swapprofit_inETH
-  let est_gascost = (currentgasPrice*1.25) * (est_gas*2)
+  let est_gascost = (currentgasPrice*1) * (test_gas*2)
   const gascost_inETH = web3.utils.fromWei(est_gascost.toString())
 
 
@@ -575,6 +577,7 @@ async function checkPair(args) {
   //  console.log(num_uni,outputSymbol,outputAddress,'AMOUNTS OUT SUSHI',web3.utils.fromWei(sushiswapAmountsOut[1],'Ether'),'- FLASH AMOUNT', web3.utils.fromWei(flash_amount))
     let profit = (swapprofit_inETH - gascost_inETH)*ethPrice_inDai
   //  console.log(outputSymbol,outputAddress,'PROFIT = SWAP PROFIT',swapprofit_inETH,'MINUS GAS COST IN ETH',gascost_inETH,'TIMES ETH PRICE IN DAI',ethPrice_inDai, profit)
+  let ethprofit = swapprofit_inETH - gascost_inETH
 
   if(profit>highestProfit && profit <200){
     highestProfit = profit
@@ -598,7 +601,7 @@ async function checkPair(args) {
       create_record('Un-Su',inputSymbol,outputSymbol, profit, time)
       networkisBusy = true
  }else{
-   console.log(outputSymbol,'Un->Su',financial(profit),'USD', '-------------------Uni received',financial(web3.utils.fromWei(num_uni)),'Sushi ETH',(web3.utils.fromWei(sushiswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
+   console.log(ethprofit,outputSymbol,'Un->Su',financial(profit),'USD', '-------------------Uni received',financial(web3.utils.fromWei(num_uni)),'Sushi ETH',(web3.utils.fromWei(sushiswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
 
  }  }
 
@@ -607,15 +610,17 @@ async function checkPair(args) {
    swapprofit_inETH = (web3.utils.fromWei(uniswapAmountsOut[1],'Ether')) - web3.utils.fromWei(flash_amount)
    //console.log(num_sushi,outputSymbol,outputAddress,'AMOUNTS OUT UNI',web3.utils.fromWei(uniswapAmountsOut[1],'Ether'),'- FLASH AMOUNT', web3.utils.fromWei(flash_amount))
    let profit = (swapprofit_inETH - gascost_inETH)*ethPrice_inDai
+   let ethprofit = swapprofit_inETH - gascost_inETH
+
    //console.log(outputSymbol,outputAddress,'PROFIT = SWAP PROFIT',swapprofit_inETH,'MINUS GAS COST IN ETH',gascost_inETH,'TIMES ETH PRICE IN DAI',ethPrice_inDai, profit)
    if(profit>highestProfit && profit <200){
      highestProfit = profit
    }
-  if(profit < cut){
+   if(profit < cut){
    eth_pairs.splice(position, 1);
   }
 
-  if(profit > zero && profit <200){
+   if(profit > zero && profit <200){
     console.log(_outputSymbol,'Su->Un',financial(profit),'USD')
       gasPrice = await web3.eth.getGasPrice()
       console.log('GAS PRICE NORMAL TRANSACTION', gasPrice,'TRANASCTION COST = ',(((((gasPrice*1.2)/100000000000000000)*est_gas)*2)*ethPrice_inDai))
@@ -632,7 +637,7 @@ async function checkPair(args) {
       networkisBusy = true
 
  }else{
-   console.log(outputSymbol,'Su->Un',financial(profit),'USD', '-------------------Sushi received',financial(web3.utils.fromWei(num_sushi)),'Uni ETH',(web3.utils.fromWei(uniswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
+   console.log(ethprofit,outputSymbol,'Su->Un',financial(profit),'USD', '-------------------Sushi received',financial(web3.utils.fromWei(num_sushi)),'Uni ETH',(web3.utils.fromWei(uniswapAmountsOut[1])-web3.utils.fromWei(flash_amount)))
  }
  }
 
@@ -643,6 +648,7 @@ async function checkPair(args) {
 
 
 async function monitorPrice() {
+
   if(monitoringPrice) {return}
   ethPrice_inDai = await uniswapRouterContract.methods.getAmountsIn('1000000000000000000',(['0x6b175474e89094c44da98b954eedeac495271d0f','0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'])).call()
   ethPrice_inDai = web3.utils.fromWei(ethPrice_inDai[0].toString())
