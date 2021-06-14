@@ -1,5 +1,6 @@
 require('dotenv').config()
 const Tx = require("ethereumjs-tx").Transaction
+
 //const BigNumber = require('bignumber.js');
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -671,7 +672,7 @@ async function checkPair(args) {
   let zero = 0
   let price
   let swapprofit_inETH
-  let est_gascost = (currentgasPrice*1.00) * (test_gas*2)
+  let est_gascost = (currentgasPrice*1) * (test_gas*2)
   const gascost_inETH = web3.utils.fromWei(est_gascost.toString())
 
  try{
@@ -766,6 +767,7 @@ async function checkPair(args) {
 }
 
 async function monitorPrice() {
+
   if(monitoringPrice) {return}
   ethPrice_inDai = await uniswapRouterContract.methods.getAmountsIn('1000000000000000000',(['0x6b175474e89094c44da98b954eedeac495271d0f','0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'])).call()
   ethPrice_inDai = web3.utils.fromWei(ethPrice_inDai[0].toString())
