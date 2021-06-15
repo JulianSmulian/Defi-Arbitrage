@@ -669,7 +669,7 @@ async function checkPair(args) {
   _inputAddress=inputAddress
   _outputAddress=outputAddress
   let cut = -10
-  let zero = 0
+  let zero = -2
   let price
   let swapprofit_inETH
   let est_gascost = (currentgasPrice*1) * (test_gas*2)
@@ -767,7 +767,15 @@ async function checkPair(args) {
 }
 
 async function monitorPrice() {
-
+  var bal = await web3.eth.getBalance(meAddress);
+  if(bal > flash_amount){
+  console.log('ETH BALANCE IS GOOD', web3.utils.fromWei(bal))
+  }else{
+  console.log('ETH BALANCE IS TOO LOW', web3.utils.fromWei(bal), web3.utils.fromWei(flash_amount))
+  monitoringPrice = false
+  clearInterval(priceMonitor)
+  return
+  }
   if(monitoringPrice) {return}
   ethPrice_inDai = await uniswapRouterContract.methods.getAmountsIn('1000000000000000000',(['0x6b175474e89094c44da98b954eedeac495271d0f','0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'])).call()
   ethPrice_inDai = web3.utils.fromWei(ethPrice_inDai[0].toString())
@@ -800,8 +808,6 @@ async function monitorPrice() {
     }
 } catch (error) {
 console.error(error)
-monitoringPrice = false
-clearInterval(priceMonitor)
 return
 }
 }
@@ -907,10 +913,6 @@ async function swapEth_SUSHI(trading_address,expectedAmount) {
 
   receipt = await sendRawTransaction(txData)
   forceReceipt()
-  monitoringPrice = true
-  pairs_monitoringPrice = true
-  priceMonitor = setInterval(async () => { await monitorPrice() }, 60000) //60 seconds
-  pairs_priceMonitor = setInterval(async () => { await pairs_monitorPrice() }, 310000) //310 seconds
 
   checkTokenApproval(trading_address,'uni')
 }
@@ -978,12 +980,6 @@ console.log(
   receipt = await sendRawTransaction(txData)
   forceReceipt()
 
-
-  monitoringPrice = true
-  pairs_monitoringPrice = true
-  priceMonitor = setInterval(async () => { await monitorPrice() }, 80000) //60 seconds
-  pairs_priceMonitor = setInterval(async () => { await pairs_monitorPrice() }, 310000) //310 seconds
-
   checkTokenApproval(trading_address,'sushi')
 }
 
@@ -1017,12 +1013,13 @@ async function swapToken_UNI(trading_address) {
     const receipt = await sendRawTransaction(txData)
     const info =  await web3.eth.getTransactionReceipt(receipt.transactionHash)
     console.log(info)
-    networkisBusy = false
-    priceMonitor = setInterval(async () => { await monitorPrice() }, 80000) //75 seconds 6 hours of infura
-    pairs_priceMonitor = setInterval(async () => { await pairs_monitorPrice() }, 310000) //310 seconds
+    networkisBusy = 'false'
+    monitoringPrice = false
+    await monitorPrice()
   }catch (error) {
   console.error(error);
-
+  token = toPlainString(Math.round(token*.95))
+  swapToken_UNI(trading_address)
   }
 
 }
@@ -1057,12 +1054,13 @@ async function swapToken_SUSHI(trading_address) {
     const receipt = await sendRawTransaction(txData)
     const info =  await web3.eth.getTransactionReceipt(receipt.transactionHash)
     console.log(info)
-    networkisBusy = false
-    priceMonitor = setInterval(async () => { await monitorPrice() }, 80000) //75 seconds 6 hours of infura
-    pairs_priceMonitor = setInterval(async () => { await pairs_monitorPrice() }, 310000) //310 seconds
+    networkisBusy = 'false'
+    monitoringPrice = false
+    await monitorPrice()
   }catch (error) {
   console.error(error);
-
+  token = toPlainString(Math.round(token*.95))
+  swapToken_SUSHI(trading_address)
 }
 }
 
