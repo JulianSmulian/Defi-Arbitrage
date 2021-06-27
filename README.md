@@ -4,9 +4,12 @@ Web3, nodejs, javascript, infura tools to measure liquidity between Uniswap and 
 1) Install nodejs from command line FILE LOCATION THEN --- install npm
 2) Create dot env file (.env) from command line --- https://www.npmjs.com/package/dotenv
 3) Create an Infura account --- https://infura.io/
+
 .env file should look like this 
-RPC_URL="https://mainnet.infura.io/v3/PROJECT_ID"
+RPC_URL="https://mainnet.infura.io/v3/PROJECT_ID" 
+
 PRIVATE_KEY="YOUR METAMASK ACCOUNT PRIVATE KEY REMOVE 0x from string"
+
 ACCOUNT="YOUR METAMASK ETH/BINANCE ACCOUNT ADDRESS REMOVE 0x from string"
 
 This project can be greatly improved. I orginally wrote the code for fun to learn how arbitrage works. 
