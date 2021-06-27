@@ -463,47 +463,7 @@ sushi_pairArray.sort(function(a,b){
 }
 
 getPairs()
-/*
-async function getUniPairs(){
- let pairLength = await pancakeswapFactoryContract.methods.allPairsLength().call()
- for (let i = 0; i < pairsize; i++) {
-   let pair = await pancakeswapFactoryContract.methods.allPairs(i).call()
-   let UNI_PAIR_ADDRESS = pair
-   let pancakePairContract = new web3.eth.Contract(UNI_PAIR_ABI,UNI_PAIR_ADDRESS)
 
-   //let liquidity = await pancakePairContract.methods.getReserves().call()
-   //let real_liquidity = web3.utils.fromWei(liquidity[1])
-   //console.log('LIQUIDITY', web3.utils.fromWei(liquidity[1]),'Ether');
-   try{
-   let pairs0 = await pancakePairContract.methods.token0().call()
-   let PAIR_ADDRESS0 = pairs0
-   let pancakePairToken0Contract = new web3.eth.Contract(ERC20_ABI,PAIR_ADDRESS0)
-   let pairs0symbol = await pancakePairToken0Contract.methods.symbol().call()
-
-   let pairs1 = await pancakePairContract.methods.token1().call()
-   let PAIR_ADDRESS1 = pairs1
-   let pancakePairToken1Contract = new web3.eth.Contract(ERC20_ABI,PAIR_ADDRESS1)
-   let pairs1symbol = await pancakePairToken1Contract.methods.symbol().call()
-
-
-  console.log('Pair',i, pairs0symbol,pairs1symbol)
-  const pancake_pair = pairs0symbol+'-'+pairs1symbol
-  pancake_pairArray.push({pancake_pair})
-}catch(e){
-  console.log(e)
-  continue;
-
-}}
-
-combined_Array.push(sushi_pairArray.concat(pancake_pairArray));
-combined_Array.sort(function(a,b){
-    return a.pairings.localeCompare(b.pairings);
-})
-console.log(combined_Array)
-fs.writeFileSync('./abis/erc20/pairs.txt', JSON.stringify(combined_Array));
-}
-//getUniPairs()
-*/
 async function pairfile(arr){
 await fs.writeFileSync('./abis/erc20/pairs.txt', arr.join('\n'));
 }

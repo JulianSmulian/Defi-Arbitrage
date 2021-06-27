@@ -745,7 +745,7 @@ let priceMonitor
 let monitoringPrice = false
 
 
- async function checkTokenApproval(tokenAddress, exchange){
+async function checkTokenApproval(tokenAddress, exchange){
   var common = ethereumjs_common.forCustomChain ('mainnet', { networkId: 56, chainId: 56, name: 'bnb' }, 'petersburg');
   const brc20TokenContract = new web3.eth.Contract(BRC20_TOKEN_ABI, tokenAddress,common)
   if(exchange == 'pancake'){

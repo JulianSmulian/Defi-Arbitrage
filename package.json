@@ -1,33 +1,36 @@
 {
   "name": "trading-bot",
   "version": "0.3.0",
-  "description": "Steal My Cryptocurrency Trading Bot!",
+  "description": "Crypto Liquidity comparer",
   "engines": {
     "node": "10.x"
   },
   "main": "index.js",
   "scripts": {
     "su": "node sushiswap_uniswap.js",
-    "stablecoin": "node stablecoin.js",
     "binance": "node binance.js",
-    "testV3": "node sushiswap_uniswapV3"
+    "test": "node sushiswap_uniswap_ropsten.js",
+    "common": "node common_uniswapsushiswappairs.js",
+    "kysu": "node kysu.js",
+    "su2": "node sushiswap_uniswap2.js"
   },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.2.2",
+    "@truffle/hdwallet-provider": "^1.4.0",
+    "abi-decoder": "^2.4.0",
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.1",
     "console.table": "^0.10.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "ejs": "^2.5.6",
     "ethereumjs-tx": "^2.1.2",
-    "ethers": "^5.0.31",
+    "ethers": "^5.2.0",
     "express": "^4.15.2",
     "infura-web3-provider": "0.0.3",
-    "lodash": "^4.17.20",
-    "moment": "^2.25.3",
-    "moment-timezone": "^0.5.28",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
     "numeral": "^2.0.6",
-    "web3": "^1.3.4"
+    "web3": "^1.3.6"
   },
   "devDependencies": {
     "request": "^2.81.0"
