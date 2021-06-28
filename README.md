@@ -26,3 +26,10 @@ https://github.com/dappuniversity
 
 https://github.com/jklepatch
 
+Extra:
+A couple of helpful principles to help you understand how price is determined with Uniswap, Pancake pairs etc
+EthTokens is BinanceCoin on Binance Network
+
+#EthTokens /(#Tokens X EthPrice) = Token Price 
+
+#EthTokens / #Tokens = Token per Eth
