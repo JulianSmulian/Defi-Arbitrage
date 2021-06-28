@@ -20,7 +20,7 @@ PLEASE US the sushiswap_uniswap_ropsten.js BEFORE using real money on ETH networ
 I am not responsible for any losses from any transaction you make. 
 
 You can use these for arbitrage BUT there are faster and more accurate ways to find arbitrage between exchanges. I will leave that up to you to discover.
-Some of this code is inspired from projects built by devs I have listed below. 
+Here are a couple of links to devs that I learned a lot from. Feel free to ask me a question. 
 
 https://github.com/dappuniversity
 
@@ -33,3 +33,7 @@ EthTokens is BinanceCoin on Binance Network
 #EthTokens /(#Tokens X EthPrice) = Token Price 
 
 #EthTokens / #Tokens = Token per Eth
+
+If you catch the market at the right time and find some great arbs send a few wei my way.
+0x2076D4Ad149ce6d682b80efDfDb13fdE2bA0cB7f
+
