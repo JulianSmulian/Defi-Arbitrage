@@ -6,6 +6,7 @@ Web3, nodejs, javascript, infura tools to measure liquidity between Uniswap and 
 3) Create an Infura account --- https://infura.io/
 
 .env file should look like this 
+
 RPC_URL="https://mainnet.infura.io/v3/PROJECT_ID" 
 
 PRIVATE_KEY="YOUR METAMASK ACCOUNT PRIVATE KEY REMOVE 0x from string"
