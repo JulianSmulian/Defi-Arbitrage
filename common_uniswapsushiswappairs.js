@@ -32,6 +32,7 @@ let pairsize = 50
 const sushi_pairArray =[]
 const pancake_pairArray = []
 const combined_Array = []
+//COPY ABIS ERC20 text file here into su_pairs \|/
 const su_pairs =[
 {sy: 'CRV', adr: '0xD533a949740bb3306d119CC777fa900bA034cd52', sP: '0x58Dc5a51fE44589BEb22E8CE67720B5BC5378009', uP: '0x3dA1313aE46132A397D90d95B1424A9A7e3e0fCE'},
 {sy: 'REN', adr: '0x408e41876cCCDC0F92210600ef50372656052a38', sP: '0x611CDe65deA90918c0078ac0400A72B0D25B9bb1', uP: '0x8Bd1661Da98EBDd3BD080F0bE4e6d9bE8cE9858c'},
@@ -266,6 +267,85 @@ return
 monitoringPrice = false
 }
 
+getNonEthPairs()
+async function getNonEthPairs(){
+  //USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+  //DAI  0x6B175474E89094C44Da98b954EedeAC495271d0F
+  //USDT 0xdac17f958d2ee523a2206206994597c13d831ec7
+  //PAX  0x8e870d67f660d95d5be530380d0ec0bd388289e1
+  //TUSD 0x0000000000085d4780B73119b644AE5ecd22b376
+  //GUSD 0x056fd409e1d7a124bd7017459dfea2f387b6d5cd
+  //BUSD 0x4fabb145d64652a948d72533023f6e7a623c7c53
+  //UST  0xa47c8bf37f92abed4a126bda807a7b7498661acd
+
+  let pairLength = await uniswapFactoryContract.methods.allPairsLength().call()
+   for (let i = 0; i < pairLength; i++) {
+  let pair = await uniswapFactoryContract.methods.allPairs(i).call()
+  let UNI_PAIR_ADDRESS = pair
+  let uniPairContract = new web3.eth.Contract(UNI_PAIR_ABI,UNI_PAIR_ADDRESS)
+  let unipairs0address = await uniPairContract.methods.token0().call()
+  let unipairs1address = await uniPairContract.methods.token1().call()
+  let liquidity = await uniPairContract.methods.getReserves().call()
+  if( unipairs0address.toLowerCase() == '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+  ||
+  unipairs1address.toLowerCase() == '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'){
+    //PASS OVER ALL ETH PAIRS
+  }else{
+    if(
+    unipairs0address.toLowerCase() =='0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'||
+    unipairs0address.toLowerCase() =='0x6B175474E89094C44Da98b954EedeAC495271d0F'||
+    unipairs0address.toLowerCase() =='0xdac17f958d2ee523a2206206994597c13d831ec7'||
+    unipairs0address.toLowerCase() =='0x8e870d67f660d95d5be530380d0ec0bd388289e1'||
+    unipairs0address.toLowerCase() =='0x0000000000085d4780B73119b644AE5ecd22b376'||
+    unipairs0address.toLowerCase() =='0x056fd409e1d7a124bd7017459dfea2f387b6d5cd'||
+    unipairs0address.toLowerCase() =='0x4fabb145d64652a948d72533023f6e7a623c7c53'||
+    unipairs0address.toLowerCase() =='0xa47c8bf37f92abed4a126bda807a7b7498661acd'){
+      let real_liquidity = liquidity[0]
+      console.log(unipairs0address,unipairs1address,real_liquidity,UNI_PAIR_ADDRESS)
+      if(web3.utils.fromWei(liquidity[0])>1000000000000000000000000000000000){
+        let uniPairToken0Contract = new web3.eth.Contract(ERC20_ABI,unipairs0address)
+        let pairssymbol = await uniPairToken0Contract.methods.symbol().call()
+        uni_pair = 'stablecoin: '
+        uni_pair+=unipairs0address
+        uni_pair+=' token: '
+        uni_pair+=pairssymbol
+        uni_pair+=' pairaddress: '
+        uni_pair+=UNI_PAIR_ADDRESS
+        console.log(stablesymbol,tokensymbol, unipairs0address)
+        uni_pairArray.push({uni_pair})
+    }
+  }
+      if(
+    unipairs1address.toLowerCase() =='0x6B175474E89094C44Da98b954EedeAC495271d0F'||
+    unipairs1address.toLowerCase() =='0xdac17f958d2ee523a2206206994597c13d831ec7'||
+    unipairs1address.toLowerCase() =='0x8e870d67f660d95d5be530380d0ec0bd388289e1'||
+    unipairs1address.toLowerCase() =='0x0000000000085d4780B73119b644AE5ecd22b376'||
+    unipairs1address.toLowerCase() =='0x056fd409e1d7a124bd7017459dfea2f387b6d5cd'||
+    unipairs1address.toLowerCase() =='0x4fabb145d64652a948d72533023f6e7a623c7c53'||
+    unipairs1address.toLowerCase() =='0xa47c8bf37f92abed4a126bda807a7b7498661acd'){
+      let real_liquidity = liquidity[1]
+      console.log(unipairs0address,unipairs1address,real_liquidity,UNI_PAIR_ADDRESS)
+
+      if(web3.utils.fromWei(liquidity[1])>1000000000000000000000000000000000){
+        let uniPairToken1Contract = new web3.eth.Contract(ERC20_ABI,unipairs1address)
+        let pairssymbol = await uniPairToken1Contract.methods.symbol().call()
+        uni_pair = 'stablecoin: '
+        uni_pair+=unipairs1address
+        uni_pair+=' token: '
+        uni_pair+=pairssymbol
+        uni_pair+=' pairaddress: '
+        uni_pair+=UNI_PAIR_ADDRESS
+        console.log(stablesymbol,tokensymbol, unipairs1address)
+        uni_pairArray.push({uni_pair})
+    }
+    }
+  }
+
+}
+}
+
+
+//START HERE!
 async function getUniSushiPairs(){
  let sushi_pair
  let pairLength = await sushiFactoryContract.methods.allPairsLength().call()
@@ -427,4 +507,4 @@ function alertTerminal(){
   console.log("\007");
 }
 
-differenceMonitor = setInterval(async () => { await monitorDifference() }, 600000) //Calls monitorDifference function every 6 minutes
+//differenceMonitor = setInterval(async () => { await monitorDifference() }, 600000) //Calls monitorDifference function every 6 minutes

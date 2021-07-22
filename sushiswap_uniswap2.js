@@ -18,7 +18,7 @@ const SUSHI_FACTORY_ABI =require('./abis/sushiswap/sushi_factory_abi.json')
 const PAIR_ABI = require('./abis/uniswap/uni_pair_abi.json')
 const KYBER_ROUTER_ABI = require('./abis/kyberswap/kyber_router_abi.json')
 let highestProfit = -100
-let highestProfitSymbol = 'Julian'
+let highestProfitSymbol = 'Juliansmulian'
 //Change meAddress below, flashamount and value in txData
 const meAddress = '0xdcAAb152fd53c3Ca7514dcB85b2a9D31700A36B5'
 const flash_amount ='0030000000000000000'
