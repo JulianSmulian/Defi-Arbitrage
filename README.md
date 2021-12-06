@@ -21,6 +21,7 @@ PLEASE US the sushiswap_uniswap_ropsten.js BEFORE using real money on ETH networ
 I am not responsible for any losses from any transaction you make. 
 
 You can use these for arbitrage BUT there are faster and more accurate ways to find arbitrage between exchanges. I will leave that up to you to discover.
+
 Here are a couple of links to devs that I learned a lot from. Feel free to ask me a question. 
 
 https://github.com/dappuniversity
@@ -29,6 +30,7 @@ https://github.com/jklepatch
 
 Extra:
 A couple of helpful principles to help you understand how price is determined with Uniswap, Pancake pairs etc.
+
 EthTokens is BinanceCoin on Binance Network
 
 (#EthTokens /#Tokens) X EthPrice = Token Price 
